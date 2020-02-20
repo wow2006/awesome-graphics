@@ -42,8 +42,7 @@ Please suggest papers/articles/resources through [Github pull requests](https://
 - [Virtual Reality](#vr)
 - [Computational Photography](#photo)
 
-<a name="start" />
-## New to Computer Graphics?
+## New to Computer Graphics? <a name="start" />
 
 Computer Graphics (CG) is a subfield of Computer Science pertaining to "making images with computers".
 
@@ -83,8 +82,7 @@ Exciting stuff. But if you're just getting started, this list can be overwhelmin
 
 5. Remember to have fun! There are no rules.
 
-<a name="collections" />
-## Other Collections
+## Other Collections <a name="collections" />
 
 Many items in the list shown here were consolidated from other reading lists, maintained by people who know a lot more graphics than I do. Please check them out!
 
@@ -94,16 +92,14 @@ Many items in the list shown here were consolidated from other reading lists, ma
 - [realtimerendering.com](http://www.realtimerendering.com/)
 - [Generative Art Links at hvidtfeldts.net](http://blog.hvidtfeldts.net/index.php/generative-art-links/)
 
-<a name="courses" />
-## Course Notes
+## Course Notes <a name="courses" />
 
 - [Stanford CS348b: Image Synthesis](http://candela.stanford.edu/cs348b/doku.php)
 - [CS6630 Cornell University - Realistic Image Synthesis](http://www.cs.cornell.edu/courses/cs6630/2015fa/index.shtml)
 - http://www.cs.cornell.edu/Courses/cs6630/2012sp/schedule.stm
 - [CMU 15-462/662](http://15462.courses.cs.cmu.edu/fall2015/)
 
-<a name="textbooks" />
-## Textbooks
+## Textbooks <a name="textbooks" />
 
 - [Principles of Digital Image Synthesis](http://www.realtimerendering.com/Principles_of_Digital_Image_Synthesis_v1.0.1.pdf)
   - Graphics pipelines, CUDA, path tracing are for today, but physics is forever.
@@ -113,8 +109,7 @@ Many items in the list shown here were consolidated from other reading lists, ma
   - THE Rendering Book. It also [won an Academy Award at the Oscars!](https://www.youtube.com/watch?v=7d9juPsv1QU)
 - [GPU Gems 3, by NVIDIA](http://http.developer.nvidia.com/GPUGems3/gpugems3_part01.html)
 
-<a name="pbr" />
-## Physically-based (Photorealistic) Rendering
+## Physically-based (Photorealistic) Rendering <a name="pbr" />
 
 <img src="http://www.yiningkarlli.com/projects/takuarender/images/room.jpg" height="200px" />|<img src="http://cgimg.s3.amazonaws.com/t/g01/554901/1191193_orig.jpg" height="200px" />|<img src="http://www.studio-aiko.com/temp/classroom/daylight/classroom_daylight_cam05.jpg" height="200px" />
 ------------- | ------------- | --------
