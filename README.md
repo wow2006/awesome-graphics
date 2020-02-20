@@ -124,24 +124,21 @@ Since Jim Kajiya's 1986 paper on "The Rendering Equation", the vast majority of 
 
 PBR is sometimes used interchangeably with "Global Illumination" in literature, since light scattering is coupled to the shading model. In the end, pictures are made by photons moving into a camera, and nothing more.
 
-<a name="pbr-survey" />
-### Overview and Surveys
+### Overview and Surveys <a name="pbr-survey" />
 
 - PBRT book (see above)
 - [Robust Monte Carlo Methods for Light Transport Simulation](https://graphics.stanford.edu/papers/veach_thesis/). Eric Veach. PhD Thesis, Stanford University, 1997.
   - Nearly 20 years later, this monster thesis is *still* relevant when it comes to developing rendering algorithms. Introduces Monte Carlo rendering methods, multiple importance sampling, bidirectional path tracing, Metropolis Light Transport.
 - [Analytic Methods for Simulated Light Transport](http://www.cs.virginia.edu/~gfx/Courses/2003/ImageSynthesis/papers/General%20Rendering%20Stuff/ArvoThesis.pdf). James Avro. PhD Thesis, Yale University, December 1995
 
-<a name="rt" />
-### Raytracing
+### Raytracing <a name="rt" />
 
 Before physically-based rendering theory was developed, 3D rendering was mostly a big bag of tricks that was raytracing. However, raytracing is still widely used today in production films and games, so it's still important to understand.
 
 - [Realistic Raytracing, by Zack Waters](http://web.cs.wpi.edu/~emmanuel/courses/cs563/write_ups/zackw/realistic_raytracing.html)
 
 
-<a name="pt" />
-### Vanilla Path Tracing
+### Vanilla Path Tracing <a name="pt" />
 
 We want to estimate the path integral of irradiance arriving at the sensor (eye) in the scene. In a (basic) path tracer, we sample paths by tracing them from the eye into the scene. A sampled path has nonzero radiance if it eventually touches an emitter.
 
@@ -150,24 +147,21 @@ We want to estimate the path integral of irradiance arriving at the sensor (eye)
 - [smallpt (pathtracer in 99 lines of code) by Kevin Beason](http://www.kevinbeason.com/smallpt/)
   - Check out the various ports and extensions at the bottom of the page!
 
-<a name="pm" />
-### Photon Mapping
+### Photon Mapping <a name="pm" />
 
 Path tracers converge slowly if the light source is small. Instead, we trace paths from the light source into the scene, and store where photons land. Then, we can use a naive raytracer to simply "gather" these photons at render time. At the expense of extra storage, it's easy to do realtime dynamic viewpoints.
 
 - [Global illumination using photon maps](https://sites.fas.harvard.edu/~cs278/papers/pmap.pdf). Jensen, H. W. Rendering Techniques 1996.
 - [Photon Mapping by Zack Waters](http://web.cs.wpi.edu/~emmanuel/courses/cs563/write_ups/zackw/photon_mapping/PhotonMapping.html)
 
-<a name="bpt" />
-### Bidirectional Path Tracing
+### Bidirectional Path Tracing <a name="bpt" />
 
 Basic idea: combine eye->light tracing and light->eye tracing to increase convergence speed and reduce noise.
 
 - [Bidirectional Estimators for Light Transport](#) Veach & Guibas. Proceedings of EGRW 1994.
 - [Mathematical Models and Monte Carlo Algorithms for Physically Based Rendering] Lafortune. PhD Thesis, Katholieke Universiteit Leuven, February 1996.
 
-<a name="mlt" />
-### Metropolis Light Transport
+### Metropolis Light Transport <a name="mlt" />
 
 MCMC sampling for light paths.
 
@@ -175,16 +169,14 @@ MCMC sampling for light paths.
 - [Mitsuba Renderer](www.mitsuba-renderer.org) MLT is notoriously difficult to implement.
 - [Peter Kutz's BPT+MLT Blog](http://bptmlt.blogspot.com/)
 
-<a name="radiosity" />
-### Radiosity
+### Radiosity <a name="radiosity" />
 
 Similar to photon mapping. Light paths from the light sources are constructed, and hits are converted into point lights (VPLs). Then do multiple passes of raytracing and accumulate contributions from these point lights.
 
 - [Instant Radiosity](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.40.2213&rep=rep1&type=pdf) Keller, A. SIGGRAPH 1997.
   - [Cornell CS663 Presentation on the Paper ](http://www.cs.cornell.edu/courses/cs6630/2012sp/slides/Boyadzhiev-Matzen-InstantRadiosity.pdf)
 
-<a name="is" />
-### Importance Sampling
+### Importance Sampling <a name="is" />
 
 When doing Monte Carlo integration, samples with value 0 are wasted computation. Instead, we want to use what we know about the scene to only sample nonzero path integral samples. There are lots of options - we can importance sample in image-gradient-domain, the BSDF, and even the light field g=L(x) itself.
 
@@ -195,8 +187,7 @@ When doing Monte Carlo integration, samples with value 0 are wasted computation.
 - [Gradient-domain Path Tracing](https://mediatech.aalto.fi/publications/graphics/GPT/). Kettunen et al 2015.
 - [A Machine Learning Approach for Filtering Monte Carlo Noise](http://cvc.ucsb.edu/graphics/Papers/SIGGRAPH2015_LBF/). SIGGRAPH 2015.
 
-<a name="bsdf" />
-### BRDF/BSDF/BSSRDF
+### BRDF/BSDF/BSSRDF <a name="bsdf" />
 
 Different materials (metal, wood, skin, leggings) interact with light in different ways due to material properties and geometric differences at a microscopic level. Shading models attempt to capture these behaviors across different materials.
 
@@ -219,8 +210,7 @@ Different materials (metal, wood, skin, leggings) interact with light in differe
 - [Bidirectional Reflection Distribution Function of Thoroughly Pitted Surfaces](http://www1.cs.columbia.edu/CAVE/publications/pdfs/Koenderink_IJCV99.pdf). Koenderink et al. International Journal of Computer Vision 31 (1999).
   - BRDF of surfaces that are rough at both macro and micro scale.
 
-<a name="vol" />
-### Volume Rendering & Participating Media
+### Volume Rendering & Participating Media <a name="vol" />
 
 - Chapter 12 (Energy Transport) of Principles of Digital Image Synthesis.
   - Easy explanation of the volume rendering equation from the ground up.
@@ -249,8 +239,7 @@ Different materials (metal, wood, skin, leggings) interact with light in differe
 - [Practical Rendering of Multiple Scattering Effects in Participating Media](https://cseweb.ucsd.edu/~ravir/HRPIEG.pdf). Premoze et al. Rendering Techniques 2004: 15th Eurographics Workshop on Rendering.
 - [Physically-based simulation of rainbows](http://www.cs.dartmouth.edu/~wjarosz/publications/sadeghi11physically.html). Sadeghi et al. ACM Transactions on Graphics, 31(1), (2012).
 
-<a name="lf" />
-### Light Capture
+### Light Capture <a name="lf" />
 
 Much camera. Very science. Wow.
 
@@ -265,8 +254,7 @@ Much camera. Very science. Wow.
 Trillion Frames Per Second](http://web.media.mit.edu/~raskar//trillionfps/). Raskar et al.
 - [Gradient domain high dynamic range compression](http://ahtariev.ru/OLD/content/hdr_art/hdrc.pdf). Fattal et al. ACM SIGGRAPH 2002.
 
-<a name="mf" />
-### Microfacet Models
+### Microfacet Models <a name="mf" />
 
 Typically used to render high-frequency spatial information, like the knitting of cloth or the imperfections of skin.
 
@@ -276,16 +264,14 @@ Typically used to render high-frequency spatial information, like the knitting o
  - [Structure-aware Synthesis for Predictive Woven Fabric Appearance](http://www.cs.cornell.edu/projects/ctcloth/). Zhao eet al. SIGGRAPH 2012.
 - [Efficient Rendering of Human Skin](http://www.eugenedeon.com/project/efficient-rendering-of-human-skin/). d'Eon et al. Eurographics Symposium on Rendering 2007.
 
-<a name="gpu" />
-### GPU
+### GPU <a name="gpu" />
 
 TLDR: GPUs make everything better. But they are hard to program.
 
 - [Understanding the Efficiency of Ray Traversal on GPUs](http://www.tml.tkk.fi/~timo/publications/aila2009hpg_paper.pdf). Timo Aila and Samuli Laine. Proc. High-Performance Graphics 2009
   - [Kepler and Fermi architecture Addendum](http://research.nvidia.com/publication/understanding-efficiency-ray-traversal-gpus-kepler-and-fermi-addendum). NVIDIA Technical Report 2012.
 
-<a name="misc" />
-### Hybrid Strategies & Miscellaneous
+### Hybrid Strategies & Miscellaneous <a name="misc" />
 
 Modern and proprietary commercial renderers probably implement a combination of techniques (like MLT + BPT + PT or MLT + Photon Mapping + Radiosity).
 
@@ -304,8 +290,7 @@ Modern and proprietary commercial renderers probably implement a combination of 
 - [Temporal light field reconstruction for rendering distribution effects](http://groups.csail.mit.edu/graphics/tlfr/). Lehtinen et al. SIGGRAPH 2011.
 - [The Secret Life of Photons](https://benedikt-bitterli.me/tantalum/) Light transport tutorial
 
-<a name="games" />
-## 3D Games
+## 3D Games <a name="games" />
 
 See Ke-Sen Huang's paper collection of i3d papers ([Symposium on Interactive 3D Graphics and Games](http://kesen.realtimerendering.com/)).
 
@@ -313,8 +298,7 @@ See Ke-Sen Huang's paper collection of i3d papers ([Symposium on Interactive 3D 
 - [Interactive Display of Isosurfaces with Global Illumination](http://content.lib.utah.edu/utils/getfile/collection/uspace/id/640/filename/5290.pdf). Wyman et al. IEEE TVGG 2006.
 - [John Carmack's Fast Inverse Square Root](https://en.wikipedia.org/wiki/Fast_inverse_square_root)
 
-<a name="npr" />
-## Non-photorealistic Rendering
+## Non-photorealistic Rendering <a name="npr" />
 
 <img src="http://chrisoatley.com/wp-content/uploads/2013/02/PapermanFeature.jpg" height="120px" /> | <img src="https://cynicritics.files.wordpress.com/2013/09/waking-life-800-75.jpg" height="120px" /> | <img src="http://i.imgur.com/sC50qNf.png" height="120px"/>
 ----- | ------ | ------
@@ -324,8 +308,7 @@ Paperman | Waking Life| [Pixar 2013](https://disney-animation.s3.amazonaws.com/u
 - [Stylizing Animation by Example](http://graphics.pixar.com/library/ByExampleStylization/paper.pdf). Pixar Animation. 2013.
 - [Coherent Noise for Non-Photorealistic Rendering](http://graphics.pixar.com/library/NPRNoise/paper.pdf)
 
-<a name="shaders" />
-## Shader Art
+## Shader Art <a name="shaders" />
 
 Turns out you can do quite a lot of graphics using only a quad and an OpenGL fragment shader.
 
@@ -339,8 +322,7 @@ Turns out you can do quite a lot of graphics using only a quad and an OpenGL fra
 - [Articles by Inigo Quilez](http://www.iquilezles.org/www/index.htm)
 - [Generative Art Links](http://blog.hvidtfeldts.net/index.php/generative-art-links/)
 
-<a name="sim" />
-## Fluids and Simulation
+## Fluids and Simulation <a name="sim" />
 
 - [A material point method for snow simulation](https://www.math.ucla.edu/~jteran/papers/SSCTS13.pdf)
   - an outline of the techniques used in the snow simulation for Disney's Frozen. [video demo](https://www.youtube.com/watch?v=O0kyDKu8K-k)
@@ -350,16 +332,14 @@ Turns out you can do quite a lot of graphics using only a quad and an OpenGL fra
 - [Asynchronous Contact Mechanics](https://disney-animation.s3.amazonaws.com/uploads/production/publication_asset/10/asset/Asynchronous_Contact_Mechanics.pdf). Harmon et al. ACM communications 2012.
   - Another active area of research for Disney.
 
-<a name="geo" />
-## Differential Geometry
+## Differential Geometry <a name="geo" />
 <img src="http://brickisland.net/cs177fa12/wp-content/uploads/2012/10/ddg_differential.svg" height="200px" />
 
 - [Keenan Crane's Homepage](http://www.cs.columbia.edu/~keenan/)
   - [Excellent Youtube Talk](https://www.youtube.com/watch?v=Mcal5Cy7r4E)
 - [Globally Optimal Direction Fields](http://www.cs.columbia.edu/~keenan/Projects/GloballyOptimalDirectionFields/paper.pdf). Knöppel et al. SIGGRAPH 2014.
 
-<a name="3d-display" />
-## Three Dimensional Displays
+## Three Dimensional Displays <a name="3d-display" />
 
 Another dream of computer graphics:Iron-Man -styled Holograms.
 
@@ -372,14 +352,12 @@ Iron Man 2|Halo
 - [Three Dimensional Images in the Air](http://www.aist.go.jp/aist_e/latest_research/2006/20060210/20060210.html)
   - TLDR: Focus laser beam, plasma emission phenomenon produces a burst of light at the focal point. Doing this at a high-enough frequency allows rasterization of plasma dots. Probably not safe to touch.
 
-<a name="mesh" />
-## Meshes
+## Meshes <a name="mesh" />
 
 - [Mean Value Coordinates for Closed Triangular Meshes](http://www.cs.wustl.edu/~taoju/research/meanvalue.pdf). Ju, Schaefer, Warren. ACM Trans. on Graphics 2005.
 - [Feature Adaptive GPU Rendering of Catmull-Clark Subdivision Surfaces](http://graphics.pixar.com/library/GPUSubdivRenderingA/paper.pdf)
 
-<a name="image" />
-## Image-based Editing and Reconstruction
+## Image-based Editing and Reconstruction <a name="image" />
 
 - [Recovering high dynamic range radiance maps from photographs](http://www.pauldebevec.com/Research/HDR/debevec-siggraph97.pdf) Debevec & Malik 1997. In SIGGRAPH 97 (August 1997)
 - [Accurate, Dense, and Robust Multi-View Stereopsis](http://www.di.ens.fr/sierra/pdfs/cvpr07a.pdf). Furukawa and Ponce 2010.
@@ -393,8 +371,7 @@ Iron Man 2|Halo
 - [PatchMatch: A Randomized Correspondence Algorithm for Structural Image Editing](http://gfx.cs.princeton.edu/pubs/Barnes_2009_PAR/index.php). Barnes et al. Siggraph 2009.
 - [Efficient Gradient-Domain Compositing Using Quadtrees](http://www.agarwala.org/efficient_gdc/preprint.pdf). ACM Trans. Graph. 2007
 
-<a name="vr" />
-## Virtual Reality
+## Virtual Reality <a name="vr" />
 
 <img src="http://o.aolcdn.com/hss/storage/midas/c0f52e59f1fee11b8834dc761b599598/202256278/microsoft-hololens-medical-studies.jpg" height="200px"/>|<img src="https://i.ytimg.com/vi/asduqdRizqs/maxresdefault.jpg" height="200px"/>
 ----|-----
@@ -406,7 +383,6 @@ Microsoft Hololens|Wow
 - [John Carmack's Oculus Connect 2015 talk](https://www.youtube.com/watch?v=Ti_3SqavXjkhttps://www.youtube.com/watch?v=Ti_3SqavXjk)
 - [Why You Won’t See Hard AR Anytime Soon](http://blogs.valvesoftware.com/abrash/why-you-wont-see-hard-ar-anytime-soon/)
 
-<a name="photo" />
-## Computational Photography 
+## Computational Photography <a name="photo" />
 
 - [CAVE Laboratory at Columbia](http://www.cs.columbia.edu/CAVE/projects/cc.php)
